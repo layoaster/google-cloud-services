@@ -13,7 +13,7 @@ Set `PROJECT_ID` to your Google Cloud project ID
 ### Usage
 
 ```
-# python echo.py message
+$ python echo.py message
 ```
 
 Where `messsage` can be a string with spaces
