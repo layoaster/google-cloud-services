@@ -72,6 +72,7 @@ def delete_subscription(client, subscription):
         ).execute(num_retries=NUM_RETRIES)
 
 def publish_message(client, topic, message):
+     """Publish a message to a given topic"""
     name = get_full_topic_name(PROJECT_ID, topic)
     msg = base64.b64encode(message)
     body = {'messages': [{'data': msg}]}
@@ -110,13 +111,14 @@ if __name__ == '__main__':
     
     create_topic(pubsub)
     print "Topic '{}' created".format(TOPIC_NAME)
+
     create_subscription(pubsub, TOPIC_NAME)
     print "Subscription '{}' created\n".format(SUBSCRIPTION_NAME)
 
     publish_message(pubsub, TOPIC_NAME, message)
-    resp = pull_messages(pubsub, SUBSCRIPTION_NAME)
     print "Message sent"
 
+    resp = pull_messages(pubsub, SUBSCRIPTION_NAME)
     receivedMessages = resp.get('receivedMessages')
     if receivedMessages:
         ack_ids = []
@@ -129,5 +131,6 @@ if __name__ == '__main__':
 
     delete_subscription(pubsub, SUBSCRIPTION_NAME)
     print "Subscription removed"
+    
     delete_topic(pubsub, TOPIC_NAME)
     print "Topic removed"
