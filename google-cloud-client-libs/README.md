@@ -5,7 +5,7 @@ Make sure you install the [Google Cloud Client Libraries](https://cloud.google.c
 ### Python
 
 ```
-$ pip install --upgrade google-cloud
+$ pip install --upgrade gcloud
 ```
 
 [More info](https://googlecloudplatform.github.io/google-cloud-python/).
