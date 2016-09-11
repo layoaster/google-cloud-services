@@ -1,6 +1,6 @@
-# Samples for the Google CLoud APIs 
+# Samples for the Google Cloud APIs
 
-This repository compile a set of samples built with the two types of libraries availables: 
+This repository compiles a set of samples built with the two types of libraries available: 
 
-* Google Cloud Client Libraries
-* Google APIs Client Libraries
+* [Google Cloud Client Libraries](https://cloud.google.com/sdk/cloud-client-libraries)
+* [Google APIs Client Libraries](https://developers.google.com/api-client-library/)
