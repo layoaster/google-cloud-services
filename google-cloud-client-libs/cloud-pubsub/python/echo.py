@@ -13,7 +13,7 @@ Usage:
 """
 import sys
 
-from gcloud import pubsub
+from google.cloud import pubsub
 
 PROJECT_ID = "<YOUR-PROJECT-ID>"
 TOPIC_NAME = "echo-topic"
@@ -32,7 +32,7 @@ def create_topic(client, topicName):
 def delete_topic(topic):
     """Deletes a given topic"""
     if topic.exists():
-        topic.delete()  
+        topic.delete()
 
 def create_subscription(topic, subscriptionName):
     """Creates a new pull subscription to a given topic"""
@@ -52,7 +52,7 @@ def publish_message(topic, message):
 
 def pull_messages(subscription):
     """Pull messages from a given subscription."""
-    return subscription.pull(return_immediately=False, 
+    return subscription.pull(return_immediately=False,
         max_messages=BATCH_SIZE)
 
 def ack_messages(subscription, ack_ids):
@@ -65,11 +65,11 @@ if __name__ == '__main__':
     if len(sys.argv) < 2:
         print "ERROR: no message to send"
         exit()
-    
+
     message = ' '.join(sys.argv[1:])  # skip name of file
 
     client = pubsub.Client(project=PROJECT_ID)
-    
+
     topic = create_topic(client, TOPIC_NAME)
     print "Topic '{}' created".format(TOPIC_NAME)
 
